@@ -5,9 +5,17 @@ inputs:
     description: 'Criando um input para efeito de estudo'
     required: false
     default: 'true'
+outputs:
+  used-cache:
+    description: 'Testando o output'
+    value: ${{ steps.install.outputs.cache }}
+    
 runs:
   using: 'composite'
   steps:
     - name: Cache dependencies
       uses: actions/checkout@v3
-      id: cache
+      id: install
+      run: echo "::set-output name=cache::'${{ inputs.caching }}'"
+      shell: bash
+  
