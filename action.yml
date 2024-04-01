@@ -1,14 +1,13 @@
 name: 'Get & Cache Dependencies'
-description : 'Get the dependencies (via npm) and cache them'
-inputs: 
- caching:
- description: 'Criando um input para efeito de estudo'
- required: false
- default: 'true'
- 
-runs: 
+description: 'Get the dependencies (via npm) and cache them'
+inputs:
+  caching:
+    description: 'Criando um input para efeito de estudo'
+    required: false
+    default: 'true'
+runs:
   using: 'composite'
   steps:
-    - name : Cache dependencies
+    - name: Cache dependencies
       uses: actions/checkout@v3
       id: cache
